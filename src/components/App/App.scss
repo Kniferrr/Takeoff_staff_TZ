@@ -1,0 +1,25 @@
+@import-normalize;
+
+$AppContainerBox: 80%;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.App{
+    @include flexCenter();
+    width: 100vw;
+    height: 100vh;
+}
+
+.App_container{
+    @include flexCenter();
+    width: $AppContainerBox;
+    height: $AppContainerBox;
+    >form{
+        @include flexCenter();
+    }
+}
