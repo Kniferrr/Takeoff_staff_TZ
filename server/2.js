@@ -116,16 +116,6 @@ server.use(/^(?!\/auth).*$/,  (req, res, next) => {
   }
 })
 
-//CustomEvent
-
-router.render = (req, res) => {
-    const routerDB = JSON.parse(fs.readFileSync('./database.json', 'UTF-8'))
-    const email = verifyToken(req.headers.authorization.split(' ')[1]).email
-  res.jsonp({
-    body: routerDB.contacts.filter(el=> el.master === email)
-  })
-};
-
 server.use(router)
 
 server.listen(8000, () => {
