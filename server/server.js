@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken')
 
 const server = jsonServer.create()
 const router = jsonServer.router('./database.json')
-const userdb = JSON.parse(fs.readFileSync('./users.json', 'UTF-8'))
 
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(bodyParser.json())
@@ -27,6 +26,7 @@ function verifyToken(token){
 
 // Check if the user exists in database
 function isAuthenticated({email, password}){
+  const userdb = JSON.parse(fs.readFileSync('./users.json', 'UTF-8'))
   return userdb.users.findIndex(user => user.email === email && user.password === password) !== -1
 }
 

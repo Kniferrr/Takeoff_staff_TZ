@@ -1,11 +1,9 @@
-import AuthService from "../../servises/AuthService";
-import { Action, Dispatch } from "redux";
+import { Dispatch } from "redux";
 import {ERROR, SetAuth, SetUser,SetAccessToken} from "../redusers/reduser";
+import { AxiosResponse } from "axios";
+import { AuthResponse } from "../../models/responce/AuthResponse";
 
-    export const LoginActionCreater = async (email: string, password: string) => {
-        const UserData = {email};
-        const responce = await AuthService.login(email, password);
-        
+    export const LoginActionCreater = (UserData: object,responce: AxiosResponse<AuthResponse, any>) => {  
         return async(dispatch: Dispatch<any>) => {
             try{
                 dispatch(SetAccessToken(responce.data.access_token))

@@ -1,29 +1,35 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { LoginActionCreater } from '../../store/actionCreaters/LoginactionCreater';
 import { RootState } from '../../store/store';
 import {Navigate} from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import AuthService from '../../servises/AuthService';
 
 function LoginPage() {
-  const {error,isAuth} = useSelector((state: RootState) => state.reduser);
+    const {error,isAuth} = useSelector((state: RootState) => state.reduser);
     const [email="", setEmail] = useState<string>();
     const [password="", setPassword] = useState<string>();
+    const [AuthError="", setAuthError] = useState<string>();
     const dispatch: any = useDispatch();
-    const ConfirmForm = (e:any) =>{
+
+    const ConfirmForm = async (e:any) =>{
       e.preventDefault();
-    dispatch(LoginActionCreater(email, password));
+      const UserData = {email};
+      try{
+        const responce = await AuthService.login(email, password);
+        dispatch(LoginActionCreater(UserData,responce));
+      }catch{
+        setAuthError("Error login or Email")
+      }
     }
 
     if(error){
       return <h2>Eroor</h2>
     }else if (isAuth){
-      return  <h2>Eroor</h2>
-    }
-
-    console.log("render")
-    console.log(isAuth)     
+      return  <Navigate to="/personalarea"/>
+    }   
   return (
     <>
     <h2>Login</h2>
@@ -47,6 +53,7 @@ function LoginPage() {
     />
     <button onClick={ e => ConfirmForm(e)} className='btn btn-dark'>OK</button>
     </form>
+    <div>{AuthError}</div>
     <Link to="/register">Register</Link>
     </>
   )

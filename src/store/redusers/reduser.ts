@@ -15,6 +15,7 @@ export const reduser = createSlice({
     ERROR: (state, action:PayloadAction<string>) => {
     state.isAuth = false;
     state.error = action.payload;
+    console.log(`ERORR - ${action.payload}`)
     },
     SetAuth: (state, action:PayloadAction<boolean>) => {
       state.isAuth = action.payload;
