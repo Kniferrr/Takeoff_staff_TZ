@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { LoginActionCreater } from '../../store/actionCreaters/LoginactionCreater';
+import { cheackEmailAuth, LoginActionCreater, ValidActionCreater } from '../../store/actionCreaters/LoginactionCreater';
 import { RootState } from '../../store/store';
 import {Navigate} from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import AuthService from '../../servises/AuthService';
+import { SetAuth } from '../../store/redusers/reduser';
 
 function LoginPage() {
-    const {error,isAuth} = useSelector((state: RootState) => state.reduser);
+    const {error,isAuth,} = useSelector((state: RootState) => state.reduser);
     const [email="", setEmail] = useState<string>();
     const [password="", setPassword] = useState<string>();
     const [AuthError="", setAuthError] = useState<string>();
@@ -25,11 +26,26 @@ function LoginPage() {
       }
     }
 
+
+
+    
+
+    const cheayth = AuthService.cheackAuth();
+    cheayth
+  .then(
+    result => {
+      dispatch(cheackEmailAuth());
+    },
+    error => {
+      
+    }
+  );
+
     if(error){
       return <h2>Eroor</h2>
     }else if (isAuth){
       return  <Navigate to="/personalarea"/>
-    }   
+    }
   return (
     <>
     <h2>Login</h2>
