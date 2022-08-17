@@ -11,5 +11,9 @@ export default class AuthService {
         return await $api.post<AuthResponse>("/auth/register", {email, password})
     }
 
+    static async cheackAuth (): Promise<AxiosResponse<AuthResponse>>{
+        return await $api.post<AuthResponse>("/contacts",{})
+    }
+
 
 };

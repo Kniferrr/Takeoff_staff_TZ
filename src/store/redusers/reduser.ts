@@ -16,23 +16,18 @@ export const reduser = createSlice({
     ERROR: (state, action:PayloadAction<string>) => {
     state.isAuth = false;
     state.error = action.payload;
-    console.log(`ERORR - ${action.payload}`)
     },
     SetAuth: (state, action:PayloadAction<boolean>) => {
       state.isAuth = action.payload;
-      console.log("good login")
     },
-    SetUser: (state, action:PayloadAction<string>) => {
+    SetUser: (state, action:PayloadAction<any>) => {
       state.user = action.payload;
-      console.log("setUser")
     },
     SetAccessToken: (state, action:PayloadAction<string>) => {
       state.access_token = action.payload;
-      console.log(action.payload)
     },
     SetContacts: (state, action:PayloadAction<any>) => {
       state.contacts = action.payload;
-      console.log(action.payload)
     },
   },
 })
