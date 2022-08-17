@@ -1,6 +1,6 @@
 export interface UserState {
     error: null | string,
-    user: object,
+    user: string,
     isAuth: boolean,
     access_token: string
 }

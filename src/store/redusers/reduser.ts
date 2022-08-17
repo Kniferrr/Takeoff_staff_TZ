@@ -3,7 +3,7 @@ import { UserState } from '../../types/user';
 
 const initialState : UserState = {
     error: null,
-    user: {},
+    user: "",
     isAuth: false,
     access_token: "",
 }
@@ -21,7 +21,7 @@ export const reduser = createSlice({
       state.isAuth = action.payload;
       console.log("good login")
     },
-    SetUser: (state, action:PayloadAction<object>) => {
+    SetUser: (state, action:PayloadAction<string>) => {
       state.user = action.payload;
       console.log("setUser")
     },

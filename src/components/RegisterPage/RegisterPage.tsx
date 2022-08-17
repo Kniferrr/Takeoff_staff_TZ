@@ -14,7 +14,7 @@ function RegisterPage() {
 
   const ConfirmForm = async (e:any) =>{
     e.preventDefault();
-    const UserData = {email};
+    const UserData = email;
    try{
     const responce = await AuthService.register(email, password);
     dispatch(LoginActionCreater(UserData,responce));
