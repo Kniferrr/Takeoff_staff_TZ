@@ -45,17 +45,7 @@ import AuthService from "../../servises/AuthService";
 
     export const cheackLogin = async () => {  
         
-        const cheayth = AuthService.cheackAuth();
-    cheayth
-  .then(
-    result => {
-      return true
-    },
-    error => {
-      return false
-    }
-  );
-
+        
 
     };
     

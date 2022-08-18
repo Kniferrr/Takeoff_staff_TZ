@@ -18,8 +18,9 @@ function PersonalArea() {
 
 
 
+
   useEffect(() => {
-    fetchContactsFunction()
+    fetchContactsFunction();
   }, []);
 
   const OncreateContact = (user: string) =>{
@@ -27,16 +28,15 @@ function PersonalArea() {
     fetchContactsFunction();
   }
 
-  const fetchContactsFunction = async () =>{
-    responce = await GetContacts.fetchUsers();
-    dispatch( SetContacts(responce.data.body.map((el:any)=> el)) )
-
-  };
-
-  const onDeleteContacts = (id:number) =>{
-    GetContacts.deleteContacts(id);
+  const onDeleteContacts = async (id:number) =>{
+    await GetContacts.deleteContacts(id);
     fetchContactsFunction();
   }
+
+  const fetchContactsFunction = async () =>{
+    responce = await GetContacts.fetchUsers();
+    dispatch( SetContacts(responce.data.body.map((el:any)=> el)) );
+  };
 
   
   if(!isAuth){
@@ -45,9 +45,9 @@ function PersonalArea() {
   return (
     <>
     <div>{`Hello ${user}`}</div>
-    <button onClick={()=> OncreateContact(user)}>CreateContact</button>
+    <button className='btn btn-dark' onClick={()=> OncreateContact(user)}>CreateContact</button>
     <div>
-      {contacts.map((el:any)=> <div>{el.name}<span>{el.number}</span><button onClick={()=>onDeleteContacts(el.id)}>deliteContacts</button></div>)}
+      {contacts.map((el:any)=> <div>{el.name}<span>{el.number}</span><button className='btn btn-dark' onClick={()=>onDeleteContacts(el.id)}>deliteContacts</button></div>)}
     </div>
     </>
   )
