@@ -21,7 +21,6 @@ function LoginPage() {
     }
   );
 
-
     const {error,isAuth,} = useSelector((state: RootState) => state.reduser);
     const [email="", setEmail] = useState<string>();
     const [password="", setPassword] = useState<string>();
