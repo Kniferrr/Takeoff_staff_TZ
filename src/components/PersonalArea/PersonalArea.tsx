@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import GetContacts from '../../servises/ContactsService';
 import { SetAuth, SetContacts } from '../../store/redusers/reduser';
+import "./PersonalArea.scss"
 
 function PersonalArea() {
 
@@ -48,7 +49,7 @@ function PersonalArea() {
   if(!isAuth){
     return  <Navigate to="/login"/>;
   };
-  
+
   return (
     <>
     <div>{`Hello ${user}`}<button className='btn btn-dark' onClick={logOut}>logOut</button></div>
