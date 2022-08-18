@@ -7,6 +7,7 @@ import {Navigate} from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import AuthService from '../../servises/AuthService';
 import { SetAuth } from '../../store/redusers/reduser';
+import "./LoginPage.scss"
 
 function LoginPage() {
 
@@ -20,7 +21,6 @@ function LoginPage() {
       
     }
   );
-
 
     const {error,isAuth,} = useSelector((state: RootState) => state.reduser);
     const [email="", setEmail] = useState<string>();
@@ -50,8 +50,8 @@ function LoginPage() {
     <>
     <h2>Login</h2>
     
-    <form >
-    <input 
+    <form className='loginForm'>
+    <input
     value={email}
     id="POST-login" 
     type="text" 
