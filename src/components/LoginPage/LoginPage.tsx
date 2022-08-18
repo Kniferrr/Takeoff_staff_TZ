@@ -9,6 +9,19 @@ import AuthService from '../../servises/AuthService';
 import { SetAuth } from '../../store/redusers/reduser';
 
 function LoginPage() {
+
+  const cheayth = AuthService.cheackAuth();
+    cheayth
+  .then(
+    result => {
+      dispatch(cheackEmailAuth());
+    },
+    error => {
+      
+    }
+  );
+
+
     const {error,isAuth,} = useSelector((state: RootState) => state.reduser);
     const [email="", setEmail] = useState<string>();
     const [password="", setPassword] = useState<string>();
@@ -27,25 +40,12 @@ function LoginPage() {
     }
 
 
-
-    
-
-    const cheayth = AuthService.cheackAuth();
-    cheayth
-  .then(
-    result => {
-      dispatch(cheackEmailAuth());
-    },
-    error => {
-      
-    }
-  );
-
     if(error){
       return <h2>Eroor</h2>
     }else if (isAuth){
       return  <Navigate to="/personalarea"/>
     }
+    
   return (
     <>
     <h2>Login</h2>
