@@ -53,7 +53,7 @@ function PersonalArea() {
   return (
     <div className='personalArea'>
     <div className='personalArea_user'>
-      <img src='https://picsum.photos/200' className='personalArea_UserImg'></img>
+      <img src='https://picsum.photos/250' className='personalArea_UserImg'></img>
       <div className='personalArea_user'>{`${user}`}</div>
       <button className='btn btn-dark personalArea_logoutButton' onClick={logOut}>logOut</button>
       </div>

@@ -4,6 +4,7 @@ import { Link, Navigate } from 'react-router-dom';
 import AuthService from '../../servises/AuthService';
 import { LoginActionCreater } from '../../store/actionCreaters/LoginactionCreater';
 import { RootState } from '../../store/store';
+import "./RegisterPage.scss"
 
 function RegisterPage() {
   const {error,isAuth} = useSelector((state: RootState) => state.reduser);
@@ -35,7 +36,7 @@ return (
   <>
   <h2>Reg</h2>
   
-  <form >
+  <form className='RegForm'>
   <input 
   value={email}
   id="POST-login" 
