@@ -1,0 +1,14 @@
+.personalArea{
+    display: flex;
+}
+.personalArea_user{
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    img{
+        margin-bottom: 10px;
+    }
+    div{
+        margin-bottom: 10px;
+    }
+}

@@ -51,13 +51,19 @@ function PersonalArea() {
   };
 
   return (
-    <>
-    <div>{`Hello ${user}`}<button className='btn btn-dark' onClick={logOut}>logOut</button></div>
+    <div className='personalArea'>
+    <div className='personalArea_user'>
+      <img src='https://picsum.photos/200' className='personalArea_UserImg'></img>
+      <div className='personalArea_user'>{`${user}`}</div>
+      <button className='btn btn-dark personalArea_logoutButton' onClick={logOut}>logOut</button>
+      </div>
+      <div className='personalArea_Contacts'>
     <button className='btn btn-dark' onClick={()=> OncreateContact(user)}>CreateContact</button>
-    <div>
+    <div className='personalArea_contacts'>
       {contacts.map((el:any)=> <div key={el.id}>{el.name}<span>{el.number}</span><button className='btn btn-dark' onClick={()=>onDeleteContacts(el.id)}>deliteContacts</button></div>)}
     </div>
-    </>
+    </div>
+    </div>
   )
 }
 
