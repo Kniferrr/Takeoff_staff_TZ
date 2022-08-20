@@ -2,16 +2,15 @@ import { Dispatch } from "redux";
 import {ERROR, SetAuth, SetUser,SetAccessToken} from "../redusers/reduser";
 import { AxiosResponse } from "axios";
 import { AuthResponse } from "../../models/responce/AuthResponse";
-import AuthService from "../../servises/AuthService";
 
     export const LoginActionCreater = (UserData: string, responce: AxiosResponse<AuthResponse, any>) => {  
         localStorage.setItem("token", responce.data.access_token)
-        localStorage.setItem("email", UserData)
+        localStorage.setItem("email", UserData);
         return async(dispatch: Dispatch<any>) => {
             try{
                 dispatch(SetAccessToken(responce.data.access_token))
-                dispatch(SetUser(UserData))
-                dispatch(SetAuth(true))
+                dispatch(SetUser(UserData));
+                dispatch(SetAuth(true));
             }catch(e){
                 dispatch(ERROR("Произошла ошибка при загрузке пользователей"));
             }
@@ -22,8 +21,8 @@ import AuthService from "../../servises/AuthService";
             const email = localStorage.getItem("email");
         return (dispatch: Dispatch<any>) => {
             try{
-                dispatch(SetAuth(true))
-                dispatch(SetUser(email))
+                dispatch(SetAuth(true));
+                dispatch(SetUser(email));
             }catch(e){
                 dispatch(ERROR("Произошла ошибка при загрузке пользователей"));
             }
@@ -43,11 +42,9 @@ import AuthService from "../../servises/AuthService";
         }
     };
 
-    export const cheackLogin = async () => {  
-        
-        
 
-    };
+    
+
     
     
 

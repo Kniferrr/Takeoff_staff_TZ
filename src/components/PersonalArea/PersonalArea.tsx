@@ -18,8 +18,6 @@ function PersonalArea() {
 };
 
 
-
-
   useEffect(() => {
     fetchContactsFunction();
   }, []);
@@ -47,7 +45,7 @@ function PersonalArea() {
 
   
   if(!isAuth){
-    return  <Navigate to="/login"/>;
+    return  <Navigate to="/"/>;
   };
 
   return (
