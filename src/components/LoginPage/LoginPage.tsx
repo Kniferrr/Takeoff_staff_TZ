@@ -10,18 +10,6 @@ import { SetAuth } from '../../store/redusers/reduser';
 import "./LoginPage.scss"
 
 function LoginPage() {
-
-  const cheayth = AuthService.cheackAuth();
-    cheayth
-  .then(
-    result => {
-      dispatch(cheackEmailAuth());
-    },
-    error => {
-      
-    }
-  );
-
     const {error,isAuth,} = useSelector((state: RootState) => state.reduser);
     const [email="", setEmail] = useState<string>();
     const [password="", setPassword] = useState<string>();
