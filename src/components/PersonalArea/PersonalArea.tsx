@@ -11,11 +11,7 @@ function PersonalArea() {
   const dispatch: any = useDispatch();
   
   const { user,isAuth,contacts } = useTypedSelector(state => state.reduser);
-  let responce = {
-    data: {
-      body: []
-    }
-};
+
 
 
   useEffect(() => {
@@ -33,7 +29,7 @@ function PersonalArea() {
   };
 
   const fetchContactsFunction = async () =>{
-    responce = await GetContacts.fetchUsers();
+    const responce = await GetContacts.fetchUsers();
     dispatch( SetContacts(responce.data.body.map((el:any)=> el)) );
   };
 
@@ -55,14 +51,37 @@ function PersonalArea() {
       <div className='personalArea_user'>{`${user}`}</div>
       <button className='btn btn-dark personalArea_logoutButton' onClick={logOut}>logOut</button>
       </div>
+
       <div className='personalArea_Contacts'>
     <button className='btn btn-dark' onClick={()=> OncreateContact(user)}>CreateContact</button>
     <div className='personalArea_contacts'>
-      {contacts.map((el:any)=> <div key={el.id}>{el.name}<span>{el.number}</span><button className='btn btn-dark' onClick={()=>onDeleteContacts(el.id)}>deliteContacts</button></div>)}
+      <table className='personalArea_Contacts_table'>
+      <thead>
+      <tr className='table_row'>
+        <th>Name</th>
+       <th>Number</th>
+        <th>Button</th>
+     </tr>
+     </thead>
+     <tbody>
+      <tr className='table_row'>
+        <td>
+        {contacts.map((el:any)=> <div key={el.id}>{el.name}</div>)}
+        </td>
+        <td>
+        {contacts.map((el:any)=> <div key={el.id}>{el.number}</div>)}
+        </td>
+        <td>
+        {contacts.map((el:any)=> <div key={el.id}>{<button className='btn btn-dark btn_del_Contact' 
+        onClick={()=>onDeleteContacts(el.id)}>deliteContacts</button>}</div>)}
+        </td>
+        </tr>
+        </tbody>
+        </table>
     </div>
     </div>
     </div>
   )
-}
+};
 
 export default PersonalArea
