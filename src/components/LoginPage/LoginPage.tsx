@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { cheackEmailAuth, LoginActionCreater, ValidActionCreater } from '../../store/actionCreaters/LoginactionCreater';
@@ -16,6 +16,8 @@ function LoginPage() {
     const [AuthError="", setAuthError] = useState<string>();
     const dispatch: any = useDispatch();
 
+    
+    
     const ConfirmForm = async (e:any) =>{
       e.preventDefault();
       const UserData = email;

@@ -1,6 +1,8 @@
-# TicTacToe
+# Install
+npm i
+npm run dev
 
-#Тестовое задание на вакансию Front-end Developer
+# Тестовое задание на вакансию Front-end Developer
 
 Основное задание:
 Необходимо написать приложение личный кабинет.
