@@ -72,8 +72,11 @@ function PersonalArea() {
         {contacts.map((el:any)=> <div key={el.id}>{el.number}</div>)}
         </td>
         <td>
-        {contacts.map((el:any)=> <div key={el.id}>{<button className='btn btn-dark btn_del_Contact' 
-        onClick={()=>onDeleteContacts(el.id)}>deliteContacts</button>}</div>)}
+        {contacts.map((el:any)=> <div key={el.id}>{
+          <div>
+          <button className='btn btn-dark btn_del_Contact' onClick={()=>onDeleteContacts(el.id)}>del</button>
+          </div>
+          }</div>)}
         </td>
         </tr>
         </tbody>
