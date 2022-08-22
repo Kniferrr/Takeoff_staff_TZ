@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import CreateContact from '../../CreateContact/CreateContact';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import GetContacts from '../../servises/ContactsService';
 import { SetAuth, SetContacts } from '../../store/redusers/reduser';
@@ -53,7 +54,7 @@ function PersonalArea() {
       </div>
 
       <div className='personalArea_Contacts'>
-    <button className='btn btn-dark' onClick={()=> OncreateContact(user)}>CreateContact</button>
+    <div><CreateContact/></div>
     <div className='personalArea_contacts'>
       <table className='personalArea_Contacts_table'>
       <thead>

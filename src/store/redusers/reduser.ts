@@ -28,6 +28,7 @@ export const reduser = createSlice({
     },
     SetContacts: (state, action:PayloadAction<any>) => {
       state.contacts = action.payload;
+      console.log("set")
     },
   },
 })
