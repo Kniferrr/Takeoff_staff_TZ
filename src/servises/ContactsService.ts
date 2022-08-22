@@ -7,11 +7,11 @@ export default class GetContacts {
         return  await $api.get<IContacts[]>("./contacts")
     };
 
-    static async createContacts (user:string): Promise<AxiosResponse>{
+    static async createContacts (user:string, name: string, number: string): Promise<AxiosResponse>{
         return await $api.post("/contacts", {
             "master": user,
-            "name": "Product091",
-            "number": "880055535"
+            "name": name,
+            "number": number
         })
     };
 

@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import GetContacts from '../servises/ContactsService';
-import { SetContacts } from '../store/redusers/reduser';
+import { LoginActionCreater } from '../store/actionCreaters/LoginactionCreater';
+import { ERROR, SetContacts } from '../store/redusers/reduser';
 
 function CreateContact() {
+    const [name="", setName] = useState<string>();
+    const [number="", setNumber] = useState<string>();
     const dispatch: any = useDispatch();
     const { user, } = useTypedSelector(state => state.reduser);
 
-    const OncreateContact = (user: string) =>{
-        GetContacts.createContacts(user);
+    const OncreateContact = (e:any) =>{
+        e.preventDefault();
+        GetContacts.createContacts(user,name,number);
         fetchContactsFunction();
       };
 
@@ -17,14 +21,22 @@ function CreateContact() {
         const responce = await GetContacts.fetchUsers();    
         dispatch( SetContacts(responce.data.body.map((el:any)=> el)) );
       };
+
+
+  
       
   return (
     <div>
-        <button className='btn btn-dark' onClick={()=> OncreateContact(user)}>CreateContact</button>
+        <form className='loginForm'>
+  <input placeholder='Name' value={name} onChange={e=> setName(e.target.value)}
+  id="POST-name" type="text" name="name"/>
+   <input placeholder='Number' value={number} onChange={e=> setNumber(e.target.value)}
+  id="POST-name" type="text" name="name"/>
+  <button className='btn btn-dark' onClick={(e)=> OncreateContact(e)}>CreateContact</button>
+            </form>
     </div>
   )
 }
 
 export default CreateContact
-
 

@@ -19,10 +19,6 @@ function PersonalArea() {
     fetchContactsFunction();
   }, []);
 
-  const OncreateContact = (user: string) =>{
-    GetContacts.createContacts(user);
-    fetchContactsFunction();
-  };
 
   const onDeleteContacts = async (id:number) =>{
     await GetContacts.deleteContacts(id);
