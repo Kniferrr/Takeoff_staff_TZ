@@ -19,5 +19,4 @@ export default class GetContacts {
         return await $api.delete(`/contacts/${id}`, {
         })
     };
-
 };

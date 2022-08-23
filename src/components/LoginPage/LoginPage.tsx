@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { cheackEmailAuth, LoginActionCreater, ValidActionCreater } from '../../store/actionCreaters/LoginactionCreater';
-import { RootState } from '../../store/store';
+import {LoginActionCreater } from '../../store/actionCreaters/LoginactionCreater';
+import { AppDispatch, RootState } from '../../store/store';
 import {Navigate} from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import AuthService from '../../servises/AuthService';
-import { SetAuth } from '../../store/redusers/reduser';
 import "./LoginPage.scss"
 
 function LoginPage() {
@@ -14,11 +13,11 @@ function LoginPage() {
     const [email="", setEmail] = useState<string>();
     const [password="", setPassword] = useState<string>();
     const [AuthError="", setAuthError] = useState<string>();
-    const dispatch: any = useDispatch();
+    const dispatch: AppDispatch = useDispatch();
 
     
     
-    const ConfirmForm = async (e:any) =>{
+    const ConfirmForm = async (e: React.FormEvent<HTMLFormElement>) =>{
       e.preventDefault();
       const UserData = email;
       try{
@@ -40,7 +39,7 @@ function LoginPage() {
     <>
     <h2>Login</h2>
     
-    <form className='loginForm'>
+    <form className='loginForm' onSubmit={ e => ConfirmForm(e)}>
     <input
     value={email}
     id="POST-login" 
@@ -57,7 +56,7 @@ function LoginPage() {
     placeholder='Password'
     onChange={e=> setPassword(e.target.value)}
     />
-    <button onClick={ e => ConfirmForm(e)} className='btn btn-dark'>OK</button>
+    <button className='btn btn-dark'>OK</button>
     </form>
     <div>{AuthError}</div>
     <Link to="/register">Register</Link>

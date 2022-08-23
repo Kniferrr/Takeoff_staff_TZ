@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { UserState } from '../../types/user';
+import { ContactsInterface, UserState } from '../../types/user';
 
 const initialState : UserState = {
     error: null,
@@ -20,15 +20,14 @@ export const reduser = createSlice({
     SetAuth: (state, action:PayloadAction<boolean>) => {
       state.isAuth = action.payload;
     },
-    SetUser: (state, action:PayloadAction<any>) => {
+    SetUser: (state, action:PayloadAction<string>) => {
       state.user = action.payload;
     },
     SetAccessToken: (state, action:PayloadAction<string>) => {
       state.access_token = action.payload;
     },
-    SetContacts: (state, action:PayloadAction<any>) => {
+    SetContacts: (state, action:PayloadAction<Array<ContactsInterface>>) => {
       state.contacts = action.payload;
-      console.log("set")
     },
   },
 })
