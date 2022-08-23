@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import {Navigate} from "react-router-dom";
 import AuthService from '../../servises/AuthService';
 import { cheackEmailAuth } from '../../store/actionCreaters/LoginactionCreater';
-import { RootState } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
 
 function HomePage() {
   const {error,isAuth,} = useSelector((state: RootState) => state.reduser);
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   
   const cheayth = AuthService.cheackAuth();
     cheayth

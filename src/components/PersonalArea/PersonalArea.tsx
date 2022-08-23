@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { type } from '@testing-library/user-event/dist/type';
+import{ useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import CreateContact from '../../CreateContact/CreateContact';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import GetContacts from '../../servises/ContactsService';
 import { SetAuth, SetContacts } from '../../store/redusers/reduser';
+import { AppDispatch } from '../../store/store';
+import { ContactsInterface } from '../../types/user';
 import "./PersonalArea.scss"
 
 function PersonalArea() {
 
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   
   const { user,isAuth,contacts } = useTypedSelector(state => state.reduser);
 
@@ -27,7 +30,7 @@ function PersonalArea() {
 
   const fetchContactsFunction = async () =>{
     const responce = await GetContacts.fetchUsers();
-    dispatch( SetContacts(responce.data.body.map((el:any)=> el)) );
+    dispatch( SetContacts(responce.data.body.map((el:object)=> el)) );
   };
 
   const logOut = () =>{
@@ -63,13 +66,13 @@ function PersonalArea() {
      <tbody>
       <tr className='table_row'>
         <td>
-        {contacts.map((el:any)=> <div key={el.id}>{el.name}</div>)}
+        {contacts.map((el:ContactsInterface)=> <div key={el.id}>{el.name}</div>)}
         </td>
         <td>
-        {contacts.map((el:any)=> <div key={el.id}>{el.number}</div>)}
+        {contacts.map((el:ContactsInterface)=> <div key={el.id}>{el.number}</div>)}
         </td>
         <td>
-        {contacts.map((el:any)=> <div key={el.id}>{
+        {contacts.map((el:ContactsInterface)=> <div key={el.id}>{
           <div>
           <button className='btn btn-dark btn_del_Contact' onClick={()=>onDeleteContacts(el.id)}>del</button>
           </div>

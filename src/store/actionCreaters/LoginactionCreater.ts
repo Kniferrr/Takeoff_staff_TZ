@@ -6,7 +6,9 @@ import { AuthResponse } from "../../models/responce/AuthResponse";
     export const LoginActionCreater = (UserData: string, responce: AxiosResponse<AuthResponse, any>) => {  
         localStorage.setItem("token", responce.data.access_token)
         localStorage.setItem("email", UserData);
-        return async(dispatch: Dispatch<any>) => {
+        return async (dispatch: Dispatch<any>) => {
+            console.log(dispatch)
+            console.log(typeof dispatch)
             try{
                 dispatch(SetAccessToken(responce.data.access_token))
                 dispatch(SetUser(UserData));
@@ -18,7 +20,8 @@ import { AuthResponse } from "../../models/responce/AuthResponse";
     };
 
     export const ValidActionCreater = () => {  
-            const email = localStorage.getItem("email");
+            const getEmail: string | null = localStorage.getItem("email");
+            const email = getEmail === null ? " " : getEmail;
         return (dispatch: Dispatch<any>) => {
             try{
                 dispatch(SetAuth(true));
