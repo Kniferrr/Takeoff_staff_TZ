@@ -15,10 +15,6 @@ export interface ContactsInterface {
 }
 
 
-type ArticleAction = {
-    type: string
-    article: ContactsInterface
-  }
 
 
 
