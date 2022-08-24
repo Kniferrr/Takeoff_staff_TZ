@@ -22,11 +22,10 @@
 }
 
 th{
-    min-width: 120px;
+    min-width: 200px;
 }
 
 td{
-
    padding: 20px;
    padding-left: 0px;
    div{
@@ -36,5 +35,17 @@ td{
     height: 40px;
    }
 }
+
+.personalArea_contacts{
+    display: flex;
+    flex-direction: column;
+}
+
+.personalArea_Contacts_row{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
 
 

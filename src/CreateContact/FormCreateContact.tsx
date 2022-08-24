@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import GetContacts from '../servises/ContactsService';
-import { LoginActionCreater } from '../store/actionCreaters/LoginactionCreater';
-import { ERROR, SetContacts } from '../store/redusers/reduser';
+import { SetContacts } from '../store/redusers/reduser';
 import { AppDispatch } from '../store/store';
+import "./FormCreateContact.scss"
 
-function CreateContact() {
+function FormCreateContact() {
     const [name="", setName] = useState<string>();
     const [number="", setNumber] = useState<string>();
     const dispatch: AppDispatch = useDispatch();
@@ -27,17 +27,17 @@ function CreateContact() {
   
       
   return (
-    <div>
-        <form className='loginForm'  onSubmit={(e)=> OncreateContact(e)}>
+    <div className='create_contact_form'>
+        <form className='create_contact_form'  onSubmit={(e)=> OncreateContact(e)}>
   <input placeholder='Name' value={name} onChange={e=> setName(e.target.value)}
   id="POST-name" type="text" name="name"/>
    <input placeholder='Number' value={number} onChange={e=> setNumber(e.target.value)}
   id="POST-name" type="text" name="name"/>
-  <button className='btn btn-dark'>CreateContact</button>
+  <button className='btn btn-dark create_contact_form_btn'>CreateContact</button>
             </form>
     </div>
   )
 }
 
-export default CreateContact
+export default FormCreateContact;
 
