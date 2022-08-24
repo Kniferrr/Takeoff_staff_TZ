@@ -16,8 +16,6 @@ function PersonalArea() {
   
   const { user,isAuth,contacts } = useTypedSelector(state => state.reduser);
 
-
-
   useEffect(() => {
     fetchContactsFunction();
   }, []);
@@ -30,7 +28,7 @@ function PersonalArea() {
 
   const fetchContactsFunction = async () =>{
     const responce = await GetContacts.fetchUsers();
-    dispatch( SetContacts(responce.data.body.map((el:object)=> el)) );
+    dispatch( SetContacts(responce.data.body.map((el:object)=> el)));
   };
 
   const logOut = () =>{
@@ -60,7 +58,6 @@ function PersonalArea() {
           <div>{el.number}</div>
           <div><button className='btn btn-dark btn_del_Contact' onClick={()=>onDeleteContacts(el.id)}>del</button></div>
           </div>)}
-        
     </div>
     </div>
     </div>
