@@ -22,13 +22,17 @@ function PersonalArea() {
 
 
   const onDeleteContacts = async (id:number) =>{
-    await GetContacts.deleteContacts(id);
+   await GetContacts.deleteContacts(id);
     fetchContactsFunction();
   };
 
   const fetchContactsFunction = async () =>{
-    const responce = await GetContacts.fetchUsers();
+    try {
+      const responce = await GetContacts.fetchUsers();
     dispatch( SetContacts(responce.data.body.map((el:object)=> el)));
+    } catch {
+     dispatch(SetAuth(false));
+    }
   };
 
   const logOut = () =>{

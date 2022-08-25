@@ -3,6 +3,7 @@ import $api from "../http";
 import { IContacts } from "../models/responce/IContacts";
 
 export default class GetContacts {
+    
     static  async fetchUsers():Promise<any>{
         return  await $api.get<IContacts[]>("./contacts")
     };
