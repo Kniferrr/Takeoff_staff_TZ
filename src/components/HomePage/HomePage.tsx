@@ -9,15 +9,12 @@ function HomePage() {
   const {error,isAuth,} = useSelector((state: RootState) => state.reduser);
   const dispatch: AppDispatch = useDispatch();
   
-  const cheayth = AuthService.cheackAuth();
-    cheayth
+  const cheackAuth = AuthService.cheackAuth();
+  cheackAuth
   .then(
     result => {
       dispatch(cheackEmailAuth());
     },
-    error => {
-      
-    }
   );
 
 
