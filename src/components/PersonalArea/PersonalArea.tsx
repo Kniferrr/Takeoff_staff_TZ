@@ -14,7 +14,9 @@ function PersonalArea() {
 
   const dispatch: AppDispatch = useDispatch();
   
-  const { user,isAuth,contacts } = useTypedSelector(state => state.reduser);
+  const { user,isAuth,contacts, search } = useTypedSelector(state => state.reduser);
+
+  let contactsFiltred = contacts;
 
   useEffect(() => {
     fetchContactsFunction();
@@ -35,6 +37,8 @@ function PersonalArea() {
     }
   };
 
+
+
   const logOut = () =>{
     localStorage.setItem("token", "null");
     localStorage.setItem("email", "null");
@@ -45,6 +49,9 @@ function PersonalArea() {
   if(!isAuth){
     return  <Navigate to="/"/>;
   };
+
+  contactsFiltred = contactsFiltred.filter((el)=> el.name.includes(search) === true || el.number.includes(search) === true)
+  console.log(contactsFiltred)
 
   return (
     <div className='personalArea'>
@@ -57,7 +64,7 @@ function PersonalArea() {
       <div className='personalArea_Contacts'>
     <div><FormCreateContact/></div>
     <div className='personalArea_contacts'>
-        {contacts.map((el:ContactsInterface)=> <div key={el.id} className="personalArea_Contacts_row">
+        {contactsFiltred.map((el:ContactsInterface)=> <div key={el.id} className="personalArea_Contacts_row">
           <div>{el.name}</div>
           <div>{el.number}</div>
           <div><button className='btn btn-dark btn_del_Contact' onClick={()=>onDeleteContacts(el.id)}>del</button></div>
