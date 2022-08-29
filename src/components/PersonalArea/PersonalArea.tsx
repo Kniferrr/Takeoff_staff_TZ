@@ -16,7 +16,7 @@ function PersonalArea() {
   
   const { user,isAuth,contacts, search } = useTypedSelector(state => state.reduser);
 
-  let contactsFiltred = contacts;
+  let contactsFiltred;
 
   useEffect(() => {
     fetchContactsFunction();
@@ -67,9 +67,9 @@ function PersonalArea() {
 
     <div className='personalArea_contacts'>
         {contactsFiltred.map((el:ContactsInterface)=> <div key={el.id} className="personalArea_Contacts_row">
-          <div>{el.name}</div>
-          <div>{el.number}</div>
-          <div><button className='btn btn-dark btn_del_Contact' onClick={()=>onDeleteContacts(el.id)}>del</button></div>
+          <div className='personalArea_Contacts_row_name'>{el.name}</div>
+          <div className='personalArea_Contacts_row_number'>{el.number}</div>
+          <div><button className='btn btn-dark personalArea_Contacts_row_btn_del_Contact' onClick={()=>onDeleteContacts(el.id)}>del</button></div>
           </div>)}
     </div>
     </div>
