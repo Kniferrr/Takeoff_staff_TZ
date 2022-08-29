@@ -16,9 +16,9 @@ function FormCreateContact() {
         e.preventDefault();
         if(name !== "" && number !== ""){
           GetContacts.createContacts(user,name,number);
-          setName("");
-          setNumber("");
         }
+        setName("");
+        setNumber("");
         fetchContactsFunction();
       };
 
