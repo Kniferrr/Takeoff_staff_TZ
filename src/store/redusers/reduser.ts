@@ -6,7 +6,8 @@ const initialState : UserState = {
     user: "",
     isAuth: false,
     access_token: "",
-    contacts: []
+    contacts: [],
+    search: ""
 }
 
 export const reduser = createSlice({
@@ -28,10 +29,14 @@ export const reduser = createSlice({
     SetContacts: (state, action:PayloadAction<Array<ContactsInterface>>) => {
       state.contacts = action.payload;
     },
+    SetSearch: (state, action:PayloadAction<string>) => {
+      state.search = action.payload;
+    },
+    
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { ERROR,SetAuth,SetUser,SetAccessToken, SetContacts} = reduser.actions
+export const { ERROR,SetAuth,SetUser,SetAccessToken, SetContacts,SetSearch} = reduser.actions
 
 export default reduser.reducer;

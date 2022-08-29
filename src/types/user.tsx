@@ -3,11 +3,13 @@ export interface UserState {
     user: string,
     isAuth: boolean,
     access_token: string,
-    contacts: Array<ContactsInterface>
+    contacts: Array<ContactsInterface>,
+    search: string
 }
 
 
 export interface ContactsInterface {
+    includes(search: string): unknown
     id: number,
     master: string,
     name: string,

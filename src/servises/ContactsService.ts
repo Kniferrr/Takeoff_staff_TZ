@@ -20,4 +20,12 @@ export default class GetContacts {
         return await $api.delete(`/contacts/${id}`, {
         })
     };
+
+    static async putContacts (user:string, name: string, number: string, id: string): Promise<AxiosResponse>{
+        return await $api.put(`/contacts/${id}`, {
+            "master": user,
+            "name": name,
+            "number": number
+        })
+    };
 };

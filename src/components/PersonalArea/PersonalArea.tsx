@@ -1,4 +1,3 @@
-import { type } from '@testing-library/user-event/dist/type';
 import{ useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
@@ -8,13 +7,16 @@ import GetContacts from '../../servises/ContactsService';
 import { SetAuth, SetContacts } from '../../store/redusers/reduser';
 import { AppDispatch } from '../../store/store';
 import { ContactsInterface } from '../../types/user';
+import SearchPanel from '../SearchPanel/SearchPanel';
 import "./PersonalArea.scss"
 
 function PersonalArea() {
 
   const dispatch: AppDispatch = useDispatch();
   
-  const { user,isAuth,contacts } = useTypedSelector(state => state.reduser);
+  const { user,isAuth,contacts, search } = useTypedSelector(state => state.reduser);
+
+  let contactsFiltred;
 
   useEffect(() => {
     fetchContactsFunction();
@@ -35,6 +37,8 @@ function PersonalArea() {
     }
   };
 
+
+
   const logOut = () =>{
     localStorage.setItem("token", "null");
     localStorage.setItem("email", "null");
@@ -46,6 +50,8 @@ function PersonalArea() {
     return  <Navigate to="/"/>;
   };
 
+  contactsFiltred = contacts.filter((el)=> el.name.includes(search) === true || el.number.includes(search) === true)
+
   return (
     <div className='personalArea'>
     <div className='personalArea_user'>
@@ -55,12 +61,15 @@ function PersonalArea() {
       </div>
 
       <div className='personalArea_Contacts'>
-    <div><FormCreateContact/></div>
+
+        <div><SearchPanel/></div>
+        <div><FormCreateContact/></div>
+
     <div className='personalArea_contacts'>
-        {contacts.map((el:ContactsInterface)=> <div key={el.id} className="personalArea_Contacts_row">
-          <div>{el.name}</div>
-          <div>{el.number}</div>
-          <div><button className='btn btn-dark btn_del_Contact' onClick={()=>onDeleteContacts(el.id)}>del</button></div>
+        {contactsFiltred.map((el:ContactsInterface)=> <div key={el.id} className="personalArea_Contacts_row">
+          <div className='personalArea_Contacts_row_name'>{el.name}</div>
+          <div className='personalArea_Contacts_row_number'>{el.number}</div>
+          <div><button className='btn btn-dark personalArea_Contacts_row_btn_del_Contact' onClick={()=>onDeleteContacts(el.id)}>del</button></div>
           </div>)}
     </div>
     </div>
