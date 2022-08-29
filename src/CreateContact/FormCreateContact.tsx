@@ -10,11 +10,15 @@ function FormCreateContact() {
     const [name="", setName] = useState<string>();
     const [number="", setNumber] = useState<string>();
     const dispatch: AppDispatch = useDispatch();
-    const { user, } = useTypedSelector(state => state.reduser);
+    const { user} = useTypedSelector(state => state.reduser);
 
     const OncreateContact = (e:React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
-        GetContacts.createContacts(user,name,number);
+        if(name !== "" && number !== ""){
+          GetContacts.createContacts(user,name,number);
+          setName("");
+          setNumber("");
+        }
         fetchContactsFunction();
       };
 
