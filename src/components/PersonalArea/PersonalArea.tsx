@@ -1,4 +1,3 @@
-import { type } from '@testing-library/user-event/dist/type';
 import{ useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
@@ -8,6 +7,7 @@ import GetContacts from '../../servises/ContactsService';
 import { SetAuth, SetContacts } from '../../store/redusers/reduser';
 import { AppDispatch } from '../../store/store';
 import { ContactsInterface } from '../../types/user';
+import SearchPanel from '../SearchPanel/SearchPanel';
 import "./PersonalArea.scss"
 
 function PersonalArea() {
@@ -50,8 +50,7 @@ function PersonalArea() {
     return  <Navigate to="/"/>;
   };
 
-  contactsFiltred = contactsFiltred.filter((el)=> el.name.includes(search) === true || el.number.includes(search) === true)
-  console.log(contactsFiltred)
+  contactsFiltred = contacts.filter((el)=> el.name.includes(search) === true || el.number.includes(search) === true)
 
   return (
     <div className='personalArea'>
@@ -62,7 +61,10 @@ function PersonalArea() {
       </div>
 
       <div className='personalArea_Contacts'>
-    <div><FormCreateContact/></div>
+
+        <div><SearchPanel/></div>
+        <div><FormCreateContact/></div>
+
     <div className='personalArea_contacts'>
         {contactsFiltred.map((el:ContactsInterface)=> <div key={el.id} className="personalArea_Contacts_row">
           <div>{el.name}</div>
