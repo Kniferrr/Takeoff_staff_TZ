@@ -22,7 +22,7 @@ function PersonalArea() {
 
   const putFild =   (<div className='put_panel'>
   <form className='put_panel_form' onSubmit={ e => ConfirmEdit(e)}>
-<input placeholder='Search' value={onFild === "name" ? fildName : fildNumber} onChange={e=> onchangeSearch(e)}
+<input className='put_panel_Input' placeholder='Search' value={onFild === "name" ? fildName : fildNumber} onChange={e=> onchangeSearch(e)}
 id="POST-name" type="text" name="name"/>
       </form>
 </div>);

@@ -14,6 +14,14 @@
     }
 }
 
+.put_panel_Input{
+    width: 100%;
+}
+
+.put_panel{
+    width: 100%;
+}
+
 .btn_del_Contact{
     width: auto;
     height: 40px;
@@ -45,13 +53,12 @@ td{
     justify-content: space-between;
     align-items: center;
     margin: 5px;
-    div{
+    & > div{
         width: 33%;
     }
     .personalArea_Contacts_row_name{
         z-index: 100;
     }
 }
-
 
 
