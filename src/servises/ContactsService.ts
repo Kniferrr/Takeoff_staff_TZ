@@ -21,11 +21,12 @@ export default class GetContacts {
         })
     };
 
-    static async putContacts (user:string, name: string, number: string, id: string): Promise<AxiosResponse>{
+    static async putContacts (user:string, name: string, number: string, id: number): Promise<AxiosResponse>{
         return await $api.put(`/contacts/${id}`, {
             "master": user,
             "name": name,
-            "number": number
+            "number": number,
+            "id": id
         })
     };
 };

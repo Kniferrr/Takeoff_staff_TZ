@@ -7,6 +7,13 @@ export interface UserState {
     search: string
 }
 
+export interface PersonalAreaReduserInterface {
+    Numfild: number,
+    fildName: string,
+    onFild: string,
+    fildNumber:string,
+}
+
 
 export interface ContactsInterface {
     includes(search: string): unknown
