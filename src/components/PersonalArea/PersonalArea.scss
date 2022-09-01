@@ -2,7 +2,6 @@
     display: flex;
 }
 .personalArea_user{
-    
     margin-right: 50px;
     img{
         margin-bottom: 10px;
@@ -48,6 +47,9 @@ td{
     margin: 5px;
     div{
         width: 33%;
+    }
+    .personalArea_Contacts_row_name{
+        z-index: 100;
     }
 }
 

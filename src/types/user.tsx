@@ -9,8 +9,9 @@ export interface UserState {
 
 export interface PersonalAreaReduserInterface {
     Numfild: number,
-    fild: string,
+    fildName: string,
     onFild: string,
+    fildNumber:string,
 }
 
 

@@ -3,9 +3,9 @@ import { PersonalAreaReduserInterface } from '../../types/user';
 
 const initialState:PersonalAreaReduserInterface = {
     Numfild: 0.1,
-    fild: "",
+    fildName: "",
     onFild: "name",
-    
+    fildNumber: "",
 }
 export const PersonalAreaReduser = createSlice({
   name: 'PersonalAreaReduser',
@@ -14,8 +14,11 @@ export const PersonalAreaReduser = createSlice({
     setNumfild: (state, action:PayloadAction<number>) => {
         state.Numfild = action.payload;
     },
-    setfild: (state, action:PayloadAction<string>) => {
-        state.fild = action.payload;
+    setfildName: (state, action:PayloadAction<string>) => {
+        state.fildName = action.payload;
+    },
+    setfildNumber: (state, action:PayloadAction<string>) => {
+        state.fildNumber = action.payload;
     },
     setOnFild: (state, action:PayloadAction<string>) => {
         state.onFild = action.payload;
@@ -26,6 +29,6 @@ export const PersonalAreaReduser = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setNumfild,setfild,setOnFild } = PersonalAreaReduser.actions
+export const { setNumfild,setfildName,setOnFild,setfildNumber } = PersonalAreaReduser.actions
 
 export default PersonalAreaReduser.reducer;
