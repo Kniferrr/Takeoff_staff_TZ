@@ -53,12 +53,17 @@ td{
     justify-content: space-between;
     align-items: center;
     margin: 5px;
+    height: fit-content;
+    
     & > div{
+        word-break:break-all;
         width: 33%;
-    }
-    .personalArea_Contacts_row_name{
+        height: 100%;
         z-index: 100;
+        text-align: center;
+
     }
+
 }
 
 
