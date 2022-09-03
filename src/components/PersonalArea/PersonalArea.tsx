@@ -24,6 +24,7 @@ function PersonalArea() {
   <form className='put_panel_form' onSubmit={ e => ConfirmEdit(e)}>
 <input className='put_panel_Input' placeholder='Search' value={onFild === "name" ? fildName : fildNumber} onChange={e=> onchangeSearch(e)}
 id="POST-name" type="text" name="name"/>
+<button className='put_panel_form_button'>OK</button>
       </form>
 </div>);
 
@@ -47,7 +48,9 @@ id="POST-name" type="text" name="name"/>
   };
 
   const onPutContact = (id: number,name: string, number: string, takeFild: string) =>{
-    dispatch(onPutNameActionCreater(id, name, number, takeFild));
+    if(Numfild !== id){
+      dispatch(onPutNameActionCreater(id, name, number, takeFild));
+    }
   };
 
   const onchangeSearch = (e:ChangeEvent<HTMLInputElement>) =>{
