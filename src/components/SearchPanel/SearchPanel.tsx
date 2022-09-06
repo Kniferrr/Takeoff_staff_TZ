@@ -18,7 +18,7 @@ function SearchPanel() {
         <form className='search_panel_form'>
   <input placeholder='Search' value={search} onChange={e=> onchangeSearch(e)}
   id="POST-name" type="text" name="name"/>
-   <button className='btn btn-dark search_panel_form_btn'>OK</button>
+   <button className='btn btn-dark search_panel_form_btn'>Clear</button>
             </form>
     </div>
   )
