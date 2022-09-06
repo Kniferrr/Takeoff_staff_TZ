@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '../hooks/useTypedSelector';
-import GetContacts from '../servises/ContactsService';
-import { SetContacts } from '../store/redusers/reduser';
-import { AppDispatch } from '../store/store';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import GetContacts from '../../servises/ContactsService';
+import { fetchContactsFunction } from '../../store/actionCreaters/putContactActionCreater';
+import { SetContacts } from '../../store/redusers/reduser';
+import { AppDispatch } from '../../store/store';
 import "./FormCreateContact.scss"
 
 function FormCreateContact() {
@@ -19,13 +20,9 @@ function FormCreateContact() {
         }
         setName("");
         setNumber("");
-        fetchContactsFunction();
+        dispatch(fetchContactsFunction());
       };
 
-      const fetchContactsFunction = async () =>{
-        const responce = await GetContacts.fetchUsers();    
-        dispatch( SetContacts(responce.data.body.map((el:object)=> el)) );
-      };
 
 
   
