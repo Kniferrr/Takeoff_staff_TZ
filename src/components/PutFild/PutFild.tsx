@@ -15,7 +15,7 @@ function PutFild() {
         e.preventDefault();
         console.log(user, fildName, fildNumber, Numfild);
          await GetContacts.putContacts(user, fildName, fildNumber, Numfild);
-         dispatch(fetchContactsFunction());
+         dispatch({type: "FetchContactsFunction"});
          dispatch(setNumfild(0.1));
       };
 
