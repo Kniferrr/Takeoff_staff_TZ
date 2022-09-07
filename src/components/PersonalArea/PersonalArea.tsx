@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import FormCreateContact from '../CreateContact/FormCreateContact';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import GetContacts from '../../servises/ContactsService';
-import { fetchContactsFunction, onPutNameActionCreater } from '../../store/actionCreaters/putContactActionCreater';
+import { onDeleteContacts, onPutNameActionCreater } from '../../store/actionCreaters/putContactActionCreater';
 import { AppDispatch } from '../../store/store';
 import { ContactsInterface } from '../../types/user';
 import SearchPanel from '../SearchPanel/SearchPanel';
@@ -21,18 +21,9 @@ function PersonalArea() {
   let contactsFiltred;
 
 
-
   useEffect(() => {
     dispatch({type: "FetchContactsFunction"});
   }, []);
-
-
-  const onDeleteContacts = async (id:number) =>{
-   await GetContacts.deleteContacts(id);
-   dispatch({type: "FetchContactsFunction"});
-  };
-
-  
 
   const onPutContact = (id: number,name: string, number: string, takeFild: string) =>{
     if(Numfild !== id){

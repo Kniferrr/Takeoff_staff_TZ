@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import GetContacts from '../../servises/ContactsService';
-import { fetchContactsFunction } from '../../store/actionCreaters/putContactActionCreater';
-import { SetContacts } from '../../store/redusers/reduser';
 import { AppDispatch } from '../../store/store';
 import "./FormCreateContact.scss"
 
@@ -20,7 +18,7 @@ function FormCreateContact() {
         }
         setName("");
         setNumber("");
-        dispatch(fetchContactsFunction());
+        dispatch({type: "FetchContactsFunction"});
       };
 
 
