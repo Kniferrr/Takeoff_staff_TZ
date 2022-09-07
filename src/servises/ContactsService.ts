@@ -1,11 +1,14 @@
 import { AxiosResponse } from "axios";
 import $api from "../http";
 import { IContacts } from "../models/responce/IContacts";
+import { fetchUsersPromise } from "../types/user";
 
 export default class GetContacts {
     
-    static  async fetchUsers():Promise<any>{
-        return  await $api.get<IContacts[]>("./contacts")
+    static  async fetchUsers():Promise<fetchUsersPromise>{
+        const responce = await $api.get<IContacts[]>("./contacts");
+        console.log(responce);
+        return  responce;
     };
 
     static async createContacts (user:string, name: string, number: string): Promise<AxiosResponse>{

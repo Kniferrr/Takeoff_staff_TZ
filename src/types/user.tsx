@@ -23,6 +23,26 @@ export interface ContactsInterface {
     number: string
 }
 
+export interface fetchUsersPromise {
+    config: object,
+    data: object,
+    headers: object,
+    request?: object,
+    status: number,
+    statusText: string
+}
+
+export interface responceContactsInteface {
+    config: object,
+    data: {
+        body?: any
+    },
+    headers: object,
+    request?: object,
+    status: number,
+    statusText: string
+}
+
 
 
 

@@ -34,6 +34,19 @@ import { AuthResponse } from "../../models/responce/AuthResponse";
     }
     };
 
+
+export const logOut = () => {  
+        return (dispatch: Dispatch) => {
+            try{
+                localStorage.setItem("token", "null");
+                localStorage.setItem("email", "null");
+                dispatch(SetAuth(false));
+            }catch(e){
+                dispatch(ERROR("Произошла ошибка при загрузке пользователей"));
+        }
+    }
+    };
+
     
 
 

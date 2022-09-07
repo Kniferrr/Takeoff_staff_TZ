@@ -19,17 +19,20 @@ import {ERROR, SetAuth, SetContacts, } from "../redusers/reduser";
     }
     };
 
-    export const fetchContactsFunction = () => {  
-            
-        return async (dispatch: Dispatch) => {
+    export const onDeleteContacts = async (id:number) => {  
+        await GetContacts.deleteContacts(id);
+        return (dispatch: Dispatch) => {
             try{
-                const responce = await GetContacts.fetchUsers();
-                dispatch( SetContacts(responce.data.body.map((el:object)=> el)));
+                dispatch({type: "FetchContactsFunction"});
             }catch(e){
-                dispatch(SetAuth(false));
-        };
+                dispatch(ERROR("Произошла ошибка при загрузке пользователей"));
+        }
+    }
     };
-    };  
+
+    
+
+  
 
     
     

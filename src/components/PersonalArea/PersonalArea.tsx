@@ -1,17 +1,16 @@
-import{ ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import{ useEffect, } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import FormCreateContact from '../CreateContact/FormCreateContact';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import GetContacts from '../../servises/ContactsService';
-import { fetchContactsFunction, onPutNameActionCreater } from '../../store/actionCreaters/putContactActionCreater';
-import { setfildName, setfildNumber, setNumfild, setOnFild } from '../../store/redusers/PersonalAreaReduser';
-import { SetAuth, SetContacts } from '../../store/redusers/reduser';
+import { onDeleteContacts, onPutNameActionCreater } from '../../store/actionCreaters/putContactActionCreater';
 import { AppDispatch } from '../../store/store';
 import { ContactsInterface } from '../../types/user';
 import SearchPanel from '../SearchPanel/SearchPanel';
 import "./PersonalArea.scss"
 import PutFild from '../PutFild/PutFild';
+import { logOut } from '../../store/actionCreaters/LoginactionCreater';
 
 function PersonalArea() {
 
@@ -22,18 +21,9 @@ function PersonalArea() {
   let contactsFiltred;
 
 
-
   useEffect(() => {
-    dispatch(fetchContactsFunction());
+    dispatch({type: "FetchContactsFunction"});
   }, []);
-
-
-  const onDeleteContacts = async (id:number) =>{
-   await GetContacts.deleteContacts(id);
-   dispatch(fetchContactsFunction());
-  };
-
-  
 
   const onPutContact = (id: number,name: string, number: string, takeFild: string) =>{
     if(Numfild !== id){
@@ -41,14 +31,6 @@ function PersonalArea() {
     }
   };
 
-
-
-
-  const logOut = () =>{
-    localStorage.setItem("token", "null");
-    localStorage.setItem("email", "null");
-    dispatch(SetAuth(false));
-  };
 
   
   if(!isAuth){
@@ -61,9 +43,9 @@ function PersonalArea() {
   return (
     <div className='personalArea'>
     <div className='personalArea_user'>
-      <img src='https://picsum.photos/250' className='personalArea_UserImg'></img>
+      <img src='https://source.unsplash.com/random/250x250?sig=2' className='personalArea_UserImg'></img>
       <div className='personalArea_user'>{`${user}`}</div>
-      <button className='btn btn-dark personalArea_logoutButton' onClick={logOut}>logOut</button>
+      <button className='btn btn-dark personalArea_logoutButton' onClick={()=> dispatch(logOut())}>logOut</button>
       </div>
 
       <div className='personalArea_Contacts'>

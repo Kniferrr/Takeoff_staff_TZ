@@ -2,7 +2,6 @@ import React, { ChangeEvent, FormEvent } from 'react'
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import GetContacts from '../../servises/ContactsService';
-import { fetchContactsFunction } from '../../store/actionCreaters/putContactActionCreater';
 import { setfildName, setfildNumber, setNumfild } from '../../store/redusers/PersonalAreaReduser';
 import { AppDispatch } from '../../store/store';
 
@@ -13,9 +12,8 @@ function PutFild() {
     
     const ConfirmEdit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(user, fildName, fildNumber, Numfild);
          await GetContacts.putContacts(user, fildName, fildNumber, Numfild);
-         dispatch(fetchContactsFunction());
+         dispatch({type: "FetchContactsFunction"});
          dispatch(setNumfild(0.1));
       };
 
