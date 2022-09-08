@@ -1,6 +1,6 @@
 import GetContacts from "../../servises/ContactsService";
 import { SetContacts } from "../redusers/reduser";
-import {put, takeEvery } from "redux-saga/effects"
+import {call, put, takeEvery } from "redux-saga/effects"
 import { fetchUsersPromise, responceContactsInteface } from "../../types/user";
 
 async function fetchContacts(): Promise<fetchUsersPromise> {
@@ -9,7 +9,7 @@ async function fetchContacts(): Promise<fetchUsersPromise> {
 }
 
 export function* workerSagaFetchContactsFunction() {
-    const responceContacts: responceContactsInteface = yield fetchContacts();
+    const responceContacts: responceContactsInteface = yield call(fetchContacts);
     yield put( SetContacts(responceContacts.data.body.map((el:object)=> el)));
 };
 
