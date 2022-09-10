@@ -1,5 +1,8 @@
-import React from 'react';
+
+import { useDispatch } from "react-redux";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { AppDispatch } from "../../store/store";
 import HomePage from '../HomePage/HomePage';
 import LoginPage from "../LoginPage/LoginPage";
 import PersonalArea from '../PersonalArea/PersonalArea';

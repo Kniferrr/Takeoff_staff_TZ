@@ -14,14 +14,14 @@ import { logOut } from '../../store/actionCreaters/LoginactionCreater';
 function PersonalArea() {
 
   const dispatch: AppDispatch = useDispatch();
-  const { user,isAuth,contacts, search,access_token } = useTypedSelector(state => state.reduser);
+  const { user,isAuth,contacts, search } = useTypedSelector(state => state.reduser);
   const { Numfild,onFild } = useTypedSelector(state => state.PersonalAreaReduser);
 
 
   useEffect(() => {
     console.log(contacts)
     dispatch({type: "FetchContactsFunction"});
-  }, [access_token]);
+  }, []);
 
 
   
@@ -36,7 +36,7 @@ function PersonalArea() {
   return (
     <div className='personalArea'>
     <div className='personalArea_user'>
-      <img src='https://source.unsplash.com/random/250x250?sig=2' className='personalArea_UserImg'></img>
+      <img alt='avatar' src='https://source.unsplash.com/random/250x250?sig=2' className='personalArea_UserImg'></img>
       <div className='personalArea_user'>{`${user}`}</div>
       <button className='btn btn-dark personalArea_logoutButton' onClick={()=> dispatch(logOut())}>logOut</button>
       </div>
@@ -52,7 +52,7 @@ function PersonalArea() {
             {Numfild === el.id ? onFild === "name" ? <PutFild/>  : el.name: el.name}</div>
           <div className='personalArea_Contacts_row_number' onClick={()=>dispatch(onPutNameActionCreater(el.id, el.name, el.number, "number", Numfild, onFild))} >
             {Numfild === el.id ? onFild === "number" ? <PutFild/> : el.number : el.number}</div>
-          <div><button className='btn btn-dark personalArea_Contacts_row_btn_del_Contact' onClick={()=>onDeleteContacts(el.id)}>del</button></div>
+          <div><button className='btn btn-dark personalArea_Contacts_row_btn_del_Contact' onClick={async ()=> dispatch(await onDeleteContacts(el.id))}>del</button></div>
           </div>)}
     </div>
     </div>

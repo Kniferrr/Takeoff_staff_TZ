@@ -1,8 +1,7 @@
 import { Dispatch } from "redux";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
 import GetContacts from "../../servises/ContactsService";
 import { setfildName, setfildNumber, setNumfild, setOnFild } from "../redusers/PersonalAreaReduser";
-import {ERROR, SetAuth, SetContacts, } from "../redusers/reduser";
+import {ERROR, } from "../redusers/reduser";
 
 
 
@@ -21,7 +20,7 @@ import {ERROR, SetAuth, SetContacts, } from "../redusers/reduser";
     }
     };
 
-    export const onDeleteContacts = async (id:number) => {  
+    export const onDeleteContacts =   async (id:number) => {  
         await GetContacts.deleteContacts(id);
         return (dispatch: Dispatch) => {
             try{
