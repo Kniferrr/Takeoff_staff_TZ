@@ -1,6 +1,6 @@
 # Install
 
-npm i
+npm installall
 
 npm run dev
 

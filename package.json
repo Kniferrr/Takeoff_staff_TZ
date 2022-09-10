@@ -31,11 +31,13 @@
   },
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm start\"",
+    "installall": "concurrently \"npm i\" \"npm run serverinstall\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "cd server && npm run start-auth"
+    "server": "cd server && npm run start-auth",
+    "serverinstall": "cd server && npm i"
   },
   "eslintConfig": {
     "extends": [
