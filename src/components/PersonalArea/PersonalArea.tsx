@@ -19,7 +19,6 @@ function PersonalArea() {
 
 
   useEffect(() => {
-    console.log(contacts)
     dispatch({type: "FetchContactsFunction"});
   }, []);
 
@@ -32,7 +31,6 @@ function PersonalArea() {
 
   const contactsFiltred = contacts.filter((el)=> el.name.includes(search) === true || el.number.includes(search) === true);
 
-  console.log(contacts)
   return (
     <div className='personalArea'>
     <div className='personalArea_user'>

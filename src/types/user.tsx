@@ -32,10 +32,11 @@ export interface fetchUsersPromise {
     statusText: string
 }
 
+
 export interface responceContactsInteface {
     config: object,
     data: {
-        body?: any
+        body?: []
     },
     headers: object,
     request?: object,
