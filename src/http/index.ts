@@ -1,5 +1,4 @@
-import axios, { Axios, AxiosRequestConfig } from "axios";
-import { useTypedSelector } from "../hooks/useTypedSelector";
+import axios, {AxiosRequestConfig } from "axios";
 
 export const API_URL = "http://localhost:8000";
 

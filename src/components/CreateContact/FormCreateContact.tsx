@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import GetContacts from '../../servises/ContactsService';
+import GetContacts from '../../http/servises/ContactsService';
 import { AppDispatch } from '../../store/store';
 import "./FormCreateContact.scss"
 

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {Navigate} from "react-router-dom";
-import AuthService from '../../servises/AuthService';
+import AuthService from '../../http/servises/AuthService';
 import { cheackEmailAuth } from '../../store/actionCreaters/LoginactionCreater';
 import { AppDispatch, RootState } from '../../store/store';
 

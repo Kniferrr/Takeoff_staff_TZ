@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FormEvent } from 'react'
+import { ChangeEvent, FormEvent } from 'react'
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import GetContacts from '../../servises/ContactsService';
+import GetContacts from '../../http/servises/ContactsService';
 import { setfildName, setfildNumber, setNumfild } from '../../store/redusers/PersonalAreaReduser';
 import { AppDispatch } from '../../store/store';
 
