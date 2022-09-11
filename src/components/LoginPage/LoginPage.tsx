@@ -5,7 +5,7 @@ import {LoginActionCreater } from '../../store/actionCreaters/LoginactionCreater
 import { AppDispatch, RootState } from '../../store/store';
 import {Navigate} from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import AuthService from '../../servises/AuthService';
+import AuthService from '../../http/servises/AuthService';
 import "./LoginPage.scss"
 
 function LoginPage() {

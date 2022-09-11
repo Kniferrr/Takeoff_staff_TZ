@@ -1,4 +1,4 @@
-import { configureStore,applyMiddleware } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import PersonalAreaReduser from './redusers/PersonalAreaReduser';
 import reduser from './redusers/reduser';
 import createSagaMiddleware from 'redux-saga';

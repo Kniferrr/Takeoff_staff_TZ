@@ -31,7 +31,6 @@
   },
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm start\"",
-    "installall": "concurrently \"npm i\" \"npm run serverinstall\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

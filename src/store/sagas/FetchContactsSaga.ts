@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import GetContacts from "../../servises/ContactsService";
+import GetContacts from "../../http/servises/ContactsService";
 import { fetchUsersPromise, responceContactsInteface } from "../../types/user";
 import { SetContacts } from "../redusers/reduser";
 

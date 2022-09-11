@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
-import $api from "../http";
+import $api from "..";
 import { IContacts } from "../models/responce/IContacts";
-import { fetchUsersPromise } from "../types/user";
+import { fetchUsersPromise } from "../../types/user";
 
 export default class GetContacts {
     

@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import {ERROR, SetAuth, SetUser,SetAccessToken} from "../redusers/reduser";
 import { AxiosResponse } from "axios";
-import { AuthResponse } from "../../models/responce/AuthResponse";
+import { AuthResponse } from "../../http/models/responce/AuthResponse";
 
     export const LoginActionCreater = (UserData: string, responce: AxiosResponse<AuthResponse>) => {  
         localStorage.setItem("token", responce.data.access_token)

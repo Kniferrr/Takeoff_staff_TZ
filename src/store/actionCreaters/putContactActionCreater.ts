@@ -1,5 +1,6 @@
+
 import { Dispatch } from "redux";
-import GetContacts from "../../servises/ContactsService";
+import GetContacts from "../../http/servises/ContactsService";
 import { setfildName, setfildNumber, setNumfild, setOnFild } from "../redusers/PersonalAreaReduser";
 import {ERROR, } from "../redusers/reduser";
 
@@ -30,9 +31,6 @@ import {ERROR, } from "../redusers/reduser";
         }
     }
     };
-
-    
-
   
 
     

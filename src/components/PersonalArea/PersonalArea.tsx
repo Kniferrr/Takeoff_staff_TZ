@@ -36,7 +36,7 @@ function PersonalArea() {
   return (
     <div className='personalArea'>
     <div className='personalArea_user'>
-      <img alt='avatar' src='https://source.unsplash.com/random/250x250?sig=2' className='personalArea_UserImg'></img>
+      <img alt='avatar' src='https://i.pravatar.cc/250' className='personalArea_UserImg'></img>
       <div className='personalArea_user'>{`${user}`}</div>
       <button className='btn btn-dark personalArea_logoutButton' onClick={()=> dispatch(logOut())}>logOut</button>
       </div>
