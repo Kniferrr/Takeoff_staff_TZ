@@ -1,14 +1,23 @@
 .search_panel_form{
     input{
-        width: 78.75%;
         background: rgb(176, 177, 158);
+        min-width: 414px;
     }
     button{
-        width: 21.25%;
+        width: 113px;
         height: 10%;
         padding: 4px;
     }
 }
+
+@media (max-width: 515px) {
+    .search_panel_form{
+        input{
+            min-width: 203px;
+        }
+
+    }
+    }
 
 .search_panel{
     margin-bottom: 10px;

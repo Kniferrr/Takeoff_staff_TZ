@@ -10,6 +10,7 @@ import SearchPanel from '../SearchPanel/SearchPanel';
 import "./PersonalArea.scss"
 import PutFild from '../PutFild/PutFild';
 import { logOut } from '../../store/actionCreaters/LoginactionCreater';
+import React from 'react';
 
 function PersonalArea() {
 
@@ -58,4 +59,4 @@ function PersonalArea() {
   )
 };
 
-export default PersonalArea
+export default React.memo(PersonalArea);

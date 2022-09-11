@@ -4,6 +4,7 @@ import { AppDispatch } from '../../store/store';
 import { useDispatch } from 'react-redux';
 import { SetSearch } from '../../store/redusers/reduser';
 import "./SearchPanel.scss"
+import React from 'react';
 
 function SearchPanel() {
     const { search } = useTypedSelector(state => state.reduser);
@@ -24,4 +25,4 @@ function SearchPanel() {
   )
 }
 
-export default SearchPanel;
+export default React.memo(SearchPanel);
