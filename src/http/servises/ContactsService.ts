@@ -7,7 +7,6 @@ export default class GetContacts {
     
     static  async fetchUsers():Promise<fetchUsersPromise>{
         const responce = await $api.get<IContacts[]>("./contacts");
-        console.log(responce);
         return  responce;
     };
 

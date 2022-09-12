@@ -1,8 +1,11 @@
+
 .personalArea{
     display: flex;
+    flex-direction: row;
 }
 .personalArea_user{
     margin-right: 50px;
+    margin-bottom: 20px;
     img{
         margin-bottom: 10px;
         width: 250px;
@@ -81,5 +84,12 @@ td{
     }
 
 }
+
+@media (max-width: 768px) {
+    .personalArea{
+        display: flex;
+        flex-direction: column;
+    }
+    }
 
 

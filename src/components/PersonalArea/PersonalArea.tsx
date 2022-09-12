@@ -10,6 +10,7 @@ import SearchPanel from '../SearchPanel/SearchPanel';
 import "./PersonalArea.scss"
 import PutFild from '../PutFild/PutFild';
 import { logOut } from '../../store/actionCreaters/LoginactionCreater';
+import React from 'react';
 
 function PersonalArea() {
 
@@ -19,7 +20,6 @@ function PersonalArea() {
 
 
   useEffect(() => {
-    console.log(contacts)
     dispatch({type: "FetchContactsFunction"});
   }, []);
 
@@ -32,7 +32,6 @@ function PersonalArea() {
 
   const contactsFiltred = contacts.filter((el)=> el.name.includes(search) === true || el.number.includes(search) === true);
 
-  console.log(contacts)
   return (
     <div className='personalArea'>
     <div className='personalArea_user'>
@@ -60,4 +59,4 @@ function PersonalArea() {
   )
 };
 
-export default PersonalArea
+export default React.memo(PersonalArea);

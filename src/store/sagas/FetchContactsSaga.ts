@@ -10,7 +10,9 @@ async function fetchContacts(): Promise<fetchUsersPromise> {
 
 export function* workerSagaFetchContactsFunction() {
     const responceContacts: responceContactsInteface = yield call(fetchContacts);
-    yield put( SetContacts(responceContacts.data.body.map((el:object)=> el)));
+    if(responceContacts.data.body !== undefined){
+        yield put( SetContacts(responceContacts.data.body));
+    }
 };
 
 export function* watherSagaFetchContactsFunction(){

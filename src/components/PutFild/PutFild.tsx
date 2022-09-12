@@ -1,3 +1,4 @@
+import React from 'react';
 import { ChangeEvent, FormEvent } from 'react'
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
@@ -37,4 +38,4 @@ id="POST-name" type="text" name="name"/>
   )
 }
 
-export default PutFild
+export default React.memo(PutFild);
