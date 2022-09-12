@@ -3601,12 +3601,6 @@
       "id": 1342
     },
     {
-      "master": "Dragon.ry0204@yandex.ru",
-      "name": "Knifer",
-      "number": "2",
-      "id": 1344
-    },
-    {
       "id": 1345
     },
     {
@@ -3794,6 +3788,30 @@
     },
     {
       "id": 1405
+    },
+    {
+      "master": "Dragon.ry0204@yandex.ru",
+      "name": "Knifer",
+      "number": "3",
+      "id": 1407
+    },
+    {
+      "id": 1408
+    },
+    {
+      "id": 1410
+    },
+    {
+      "id": 1411
+    },
+    {
+      "id": 1412
+    },
+    {
+      "id": 1413
+    },
+    {
+      "id": 1414
     }
   ],
   "locations": [
