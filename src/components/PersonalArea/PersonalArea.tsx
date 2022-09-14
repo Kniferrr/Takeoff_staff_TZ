@@ -11,6 +11,7 @@ import "./PersonalArea.scss"
 import PutFild from '../PutFild/PutFild';
 import { logOut } from '../../store/actionCreaters/LoginactionCreater';
 import React from 'react';
+import PersonalAreaContacts from '../PersonalAreaContacts/PersonalAreaContacts';
 
 function PersonalArea() {
 
@@ -30,7 +31,6 @@ function PersonalArea() {
   };
 
 
-  const contactsFiltred = contacts.filter((el)=> el.name.includes(search) === true || el.number.includes(search) === true);
 
   return (
     <div className='personalArea'>
@@ -44,16 +44,7 @@ function PersonalArea() {
 
         <div><SearchPanel/></div>
         <div><FormCreateContact/></div>
-
-    <div className='personalArea_contacts'>
-        {contactsFiltred.map((el:ContactsInterface)=> <div key={el.id} className="personalArea_Contacts_row">
-          <div className='personalArea_Contacts_row_name' onClick={()=>dispatch(onPutNameActionCreater(el.id, el.name, el.number, "name", Numfild, onFild))} >
-            {Numfild === el.id ? onFild === "name" ? <PutFild/>  : el.name: el.name}</div>
-          <div className='personalArea_Contacts_row_number' onClick={()=>dispatch(onPutNameActionCreater(el.id, el.name, el.number, "number", Numfild, onFild))} >
-            {Numfild === el.id ? onFild === "number" ? <PutFild/> : el.number : el.number}</div>
-          <div><button className='btn btn-dark personalArea_Contacts_row_btn_del_Contact' onClick={async ()=> dispatch(await onDeleteContacts(el.id))}>del</button></div>
-          </div>)}
-    </div>
+        <div><PersonalAreaContacts/></div>
     </div>
     </div>
   )

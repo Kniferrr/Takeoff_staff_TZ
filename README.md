@@ -1,3 +1,7 @@
+Приложение личный кабинет
+
+Использовал сервер https://github.com/typicode/json-server
+
 # Install
 
 npm i
