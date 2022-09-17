@@ -12,6 +12,7 @@ import PutFild from '../PutFild/PutFild';
 import { logOut } from '../../store/actionCreaters/LoginactionCreater';
 import React from 'react';
 import PersonalAreaContacts from '../PersonalAreaContacts/PersonalAreaContacts';
+import PersonalAreaUser from '../PersonalAreaUser/PersonalAreaUser';
 
 function PersonalArea() {
 
@@ -34,11 +35,8 @@ function PersonalArea() {
 
   return (
     <div className='personalArea'>
-    <div className='personalArea_user'>
-      <img alt='avatar' src='https://i.pravatar.cc/250' className='personalArea_UserImg'></img>
-      <div className='personalArea_user'>{`${user}`}</div>
-      <button className='btn btn-dark personalArea_logoutButton' onClick={()=> dispatch(logOut())}>logOut</button>
-      </div>
+    
+      <PersonalAreaUser/>
 
       <div className='personalArea_Contacts'>
 
